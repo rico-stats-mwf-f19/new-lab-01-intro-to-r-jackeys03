@@ -1,0 +1,127 @@
+---
+title: "Introduction to R"
+name: "your name"
+date: 
+
+output:
+  html_document:
+    css: ../lab.css
+    highlight: pygments
+    theme: cerulean
+    toc: true
+    toc_float: true
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(eval = TRUE)
+library(tidyverse)
+```
+
+## R Packages
+
+Loading needed Packages
+```{r install-packages, message = FALSE, eval=FALSE}
+install.packages("tidyverse")
+install.packages("devtools")
+library(devtools)
+install_github("OpenIntroStat/openintro-r-package")
+```
+
+`library` is needed to load packages into project
+```{r load-packages, message = FALSE, eval=TRUE}
+library(tidyverse)
+library(openintro)
+```
+
+## Dr. Arbuthnot's Baptism Records
+
+To get started, run the following command to load the data.
+
+```{r load-abrbuthnot-data, eval=TRUE}
+data(arbuthnot)
+```
+
+## Exercises
+
+1. What command would you use to extract just the counts of girls baptized? 
+    
+```{r}
+
+```
+
+2. Is there an apparent trend in the number of girls baptized over the years? 
+How would you describe it? (To ensure that your lab report is comprehensive,
+be sure to include the code needed to make the plot as well as your written
+interpretation.)
+
+```{r plot-girls-vs-year}
+
+```
+
+3. Now, generate a plot of the proportion of boys born over time. What do you see? 
+
+
+Step 1 : Create new variables `mutate` function
+```{r calc-total-bapt-vars-save}
+
+```
+
+Step 2: Plot the data with the `ggplot` function
+```{r}
+  
+```
+
+Step 3: Calculate **mean** of `boy_ratio`
+```{r}
+
+```
+
+
+## Addtional Practice Exercises with USA birth records
+
+Load the present day data with the following command.
+
+```{r load-present-data}
+natality <- readr::read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQT4V0JbnhhXh5Ecch1CEBExXEL-MKl-J8TzfOLdFlWoAQ3oCQ2-xCPS5WKPNWraRmwEUiRFSzQclpp/pub?gid=0&single=true&output=csv")
+```
+
+4.  What years are included in this data set? What are the dimensions of the 
+    data frame? What are the variable (column) names?
+```{r}
+
+```
+
+5.  How do these counts compare to Arbuthnot's? Are they of a similar magnitude?
+
+6.  Make a plot that displays the proportion of boys born over time. What do you see? 
+    Does Arbuthnot's observation about boys being born in greater proportion than girls 
+    hold up in the U.S.? Include the plot in your response. *Hint:* You should be
+    able to reuse your code from Exercise 3 above, just replace the dataframe name.
+
+```{r}
+
+```
+
+7.  In what year did we see the most total number of births in the U.S.?
+    
+```{r}
+
+```
+
+8.  Create a plot of total births over time.  Comment on what do you find interesting?  
+
+```{r}
+
+```
+
+
+These data come from reports by the Centers for Disease Control. You can learn more about them
+by bringing up the help file using the command `?present`.
+
+
+<div id="license">
+This is a product of OpenIntro that is released under a 
+[Creative Commons Attribution-ShareAlike 3.0 Unported](http://creativecommons.org/licenses/by-sa/3.0). 
+This lab was adapted for OpenIntro by Andrew Bray and Mine &Ccedil;etinkaya-Rundel
+from a lab written by Mark Hansen of UCLA Statistics.
+</div>
